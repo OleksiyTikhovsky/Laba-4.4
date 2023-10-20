@@ -1,0 +1,49 @@
+// Lab_04_4.cpp
+// < Tikhovsky Oleksiy  >
+// Лабораторна робота № 4.4
+// Табуляції функції, заданої графіком.
+// Варіант 22
+
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    double R, x_start, x_end, step;
+
+    cout << "Введіть параметр R: ";
+    cin >> R;
+
+    cout << "Введіть початкове значення x: ";
+    cin >> x_start;
+
+    cout << "Введіть кінцеве значення x: ";
+    cin >> x_end;
+
+    cout << "Введіть крок dx: ";
+    cin >> step;
+
+    cout << "x\t| f(x)" << endl;
+    cout << "-------------------" << endl;
+
+    for (double x = x_start; x <= x_end; x += step) {
+        double f_x;
+
+        if (x > -8 && x <= -R) {
+            f_x = -R;
+        } else if (x > -R && x <= 0) {
+            f_x = (x == -8) ? -R : 0;
+        } else if (x > 0 && x <= R) {
+            f_x = 0;
+        } else if (x > R && x <= 5) {
+            f_x = (x == R) ? 0 : 2;
+        } else {
+            f_x = 3;
+        }
+
+        cout << fixed << setprecision(2) << x << "\t| " << f_x << endl;
+    }
+
+    return 0;
